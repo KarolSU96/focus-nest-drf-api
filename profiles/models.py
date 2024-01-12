@@ -16,7 +16,7 @@ class Profile(models.Model):
 
 
     def __str__(self):
-        return f"{self.owner}'s profile"
+        return f"{self.owner.username}'s profile"
 
 def create_profile(sender, instance, created, **kwargs):
     if created:

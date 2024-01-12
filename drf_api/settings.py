@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-mu(x%-xy!qx*n&00#mn1m$-4cls+b%$)zbk7b1dg*+d0@o^%h9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-karolsu96-focusnestdrfa-pffz5glr0n3.ws-eu107.gitpod.io']
 
 
 # Application definition
@@ -51,8 +51,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+    'corsheaders',
 
     'tasks',
+    'profiles',
     
 ]
 
@@ -64,7 +66,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://8000-karolsu96-focusnestdrfa-pffz5glr0n3.ws-eu107.gitpod.io']
 
 ROOT_URLCONF = 'drf_api.urls'
 
