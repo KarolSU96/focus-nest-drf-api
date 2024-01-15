@@ -9,7 +9,7 @@ class Profile(models.Model):
     image = models.ImageField(
         upload_to='images/', default='../default_profile_d7stiw'
     )
-
+    email = models.EmailField(max_length=255)
 
     class Meta: 
         ordering = ['-created_at']
