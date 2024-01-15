@@ -12,6 +12,7 @@ class Profile(models.Model):
     total_tasks = models.PositiveIntegerField(default=0)
     total_collections = models.PositiveIntegerField(default=0)
     finished_tasks = models.PositiveIntegerField(default=0)
+    current_goals = models.CharField(max_length=500, blank=True)
 
     class Meta: 
         ordering = ['-created_at']
