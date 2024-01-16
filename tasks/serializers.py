@@ -6,10 +6,10 @@ class TaskSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.id')
 
-    def get_is_owner(self, obj);
+    def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
 
     class Meta:
         model = Task
-        fields = ['id','owner','created_at','task_name','priority','is_done','due_date','notes']
+        fields = ['id','owner','profile_id','created_at','task_name','priority','is_done','due_date','notes','is_owner']
