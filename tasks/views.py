@@ -55,5 +55,8 @@ class TaskDetail(APIView):
     def delete(self, request, pk):
         task = self.get_object(pk)
         task.delete()
-        
+        return Response(
+            status=status.HTTP_204_NO_CONTENT
+        )
+
 # Create your views here.
