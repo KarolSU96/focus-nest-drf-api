@@ -25,4 +25,34 @@ class TaskCollectionList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class TaskCollectionDetail(APIView):
+    serializer_class = TaskCollectionSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+
+    def get_object(self, pk):
+        try:
+            task_collection = TaskCollection.objects.get(pk=pk)
+            self.check_object_permissions(self.request, task_collection)
+            return task_collection
+        except TaskCollection.DoesNotExist:
+            raise Http404
+    
+    def get(self, request, pk):
+        task_collection = self.get_object(pk)
+        serializer = TaskCollectionSerializer(
+            task_collection, context= {'request':request}
+        )
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        task_collection = self.get_object(pk)
+        serializer = TaskCollectionSerializer(
+            task_collection,data=request.data, context= {'request':request}
+        )
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
