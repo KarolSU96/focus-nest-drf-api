@@ -17,4 +17,3 @@ class Task(models.Model):
         
         return f"{self.owner.username}'s Task: {self.task_name}"
 
-# Create your models here.

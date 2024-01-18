@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from .models import Task
 from .serializers import TaskSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
+
 class TaskList(APIView):
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

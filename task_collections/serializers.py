@@ -2,8 +2,8 @@ from rest_framework import serializers
 from .models import TaskCollection
 
 class TaskCollectionSerializer(serializer.ModelSerializer):
-    owner = serializer.ReadOnlyField(source='owner.username')
-    is_owner = serializer.SerializerMethodField()
+    owner = serializers.ReadOnlyField(source='owner.username')
+    is_owner = serializers.SerializerMethodField()
 
     def get_is_owner(self, obj):
         request = self.context['request']
