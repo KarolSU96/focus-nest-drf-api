@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from rest_framework import status, permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import TaskCollection
@@ -7,7 +7,7 @@ from drf_api.permissions import IsOwnerOrReadOnly
 
 class TaskCollectionList(APIView):
     serializer_class = TaskCollectionSerializer
-    permission_classes = [permissons.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request):
         task_collections = TaskCollection.objects.all()
