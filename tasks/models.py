@@ -1,7 +1,6 @@
 from django.db import models
-
 from django.contrib.auth.models import User
-
+from task_collections.models import TaskCollection
 
 class Task(models.Model):
     
@@ -12,6 +11,7 @@ class Task(models.Model):
     created_at = models.DateField(auto_now_add=True)
     due_date = models.DateField(null=True, blank=True)
     notes = models.TextField(max_length=500, blank=True)
+    task_collection = models.ForeignKey(TaskCollection, on_delete=models.CASCADE, related_name='tasks', null=True, blank=True)
    
     def __str__(self):
         
