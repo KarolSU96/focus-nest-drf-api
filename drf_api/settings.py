@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'tasks',
     'profiles',
     'task_collections',
+    'contact_forms',
     
 ]
 
