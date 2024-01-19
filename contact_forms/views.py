@@ -3,6 +3,6 @@ from rest_framework.response import Response
 from .models import ContactForm
 from .serializers import ContactFormSerializer
 
-class ContactFormSubmissionListView(generics.CreateAPIView):
+class ContactFormSubmissionListView(generics.ListCreateAPIView):
     queryset = ContactForm.objects.all()
     serializer_class = ContactFormSerializer
