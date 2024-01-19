@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('profiles.urls')),
     path('', include('tasks.urls')),
     path('', include('task_collections.urls')),
+    path('', include('contact_forms.urls')),
 ]
