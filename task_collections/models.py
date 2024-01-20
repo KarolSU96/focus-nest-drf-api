@@ -12,5 +12,3 @@ class TaskCollection(models.Model):
 
     def __str__(self):
         return f"{self.owner.username}'s Task Colleciton{self.title}"
-
-# Create your models here.
