@@ -6,7 +6,6 @@ class TaskCollectionSerializer(serializers.ModelSerializer):
     """
     Serializer for the TaskCollection model.
 
-    Fields:
     - owner: The owner of the task collection (read-only).
     - is_owner: Indicates if the current user is the owner of the task collection.
     - tasks: Primary key related field representing the tasks associated with the task collection.

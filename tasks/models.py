@@ -11,6 +11,8 @@ class Task(models.Model):
     created_at = models.DateField(auto_now_add=True)
     due_date = models.DateField(null=True, blank=True)
     notes = models.TextField(max_length=500, blank=True)
+
+    # The task_collection field represents the collection to which the task belongs.
     task_collection = models.ForeignKey(TaskCollection, on_delete=models.CASCADE, related_name='tasks', null=True, blank=True)
    
     def __str__(self):
