@@ -21,10 +21,27 @@ class ProfileList(APIView):
 
 
 class ProfileDetail(APIView):
+    """
+    API view for retrieving, updating, and deleting a specific profile.
+
+    - GET: Retrieves details of a specific profile.
+    - PUT: Updates the details of a specific profile.
+    """
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]
 
     def get_object(self, pk):
+        """
+        Helper method to get a specific profile by its primary key.
+
+        Raises Http404 if the profile does not exist.
+
+        Args:
+        - pk: Primary key of the profile to retrieve.
+
+        Returns:
+        - The retrieved profile.
+        """
         try:
             profile = Profile.objects.get(pk=pk)
             self.check_object_permissions(self.request, profile)
@@ -33,6 +50,16 @@ class ProfileDetail(APIView):
             raise Http404
 
     def get(self, request, pk):
+        """
+        GET method to retrieve details of a specific profile.
+
+        Args:
+        - request: Request object.
+        - pk: Primary key of the profile to retrieve.
+
+        Returns:
+        - Response containing the serialized profile data.
+        """
         profile = self.get_object(pk)
         serializer = ProfileSerializer(
             profile, context={'request': request}
@@ -40,6 +67,16 @@ class ProfileDetail(APIView):
         return Response(serializer.data)
 
     def put(self, request, pk):
+        """
+        PUT method to update details of a specific profile.
+
+        Args:
+        - request: Request object.
+        - pk: Primary key of the profile to update.
+
+        Returns:
+        - Response containing the updated serialized profile data or errors.
+        """
         profile = self.get_object(pk)
         serializer = ProfileSerializer(
             profile, data=request.data, context={'request': request}
