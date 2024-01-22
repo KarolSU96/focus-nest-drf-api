@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Task
+from profiles.models import Profile
 
 class TaskSerializer(serializers.ModelSerializer):
     # Read-only field to display the owner's username
