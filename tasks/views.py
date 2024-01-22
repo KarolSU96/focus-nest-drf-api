@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from rest_framework.response import Response
 from .models import Task
 from .serializers import TaskSerializer
@@ -11,6 +11,20 @@ class TaskList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+    ]
+    search_fields = [
+        'task_name',
+        'notes',
+    ]
+    ordering_fields = [
+        'priority',
+        'due_date',
+        'is_done',
+    ]
 
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
