@@ -15,7 +15,7 @@ class TaskCollectionList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
-    ]
+    ]  
 
     search_fields = [
         'title',
