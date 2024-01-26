@@ -5,7 +5,6 @@ from profiles.models import Profile
 class TaskSerializer(serializers.ModelSerializer):
     # Read-only field to display the owner's username
     owner = serializers.ReadOnlyField(source='owner.username')
-
     # Custom method to determine if the current user is the owner of the task
     is_owner = serializers.SerializerMethodField()
 
