@@ -117,7 +117,7 @@ else:
 
 CORS_ALLOW_CREDENTIALS = True
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-karolsu96-focusnestdrfa-pffz5glr0n3.ws-eu107.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-DATABASEkarolsu96-focusnestdrfa-pffz5glr0n3.ws-eu107.gitpod.io']
 
 ROOT_URLCONF = 'drf_api.urls'
 
