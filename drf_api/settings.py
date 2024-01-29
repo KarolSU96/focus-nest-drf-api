@@ -63,7 +63,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['8000-karolsu96-focusnestdrfa-pffz5glr0n3.ws-eu107.gitpod.io','localhost','focus-nest-api-a8aee1208ee3.herokuapp.com']
+ALLOWED_HOSTS = ['8000-karolsu96-focusnestdrfa-pffz5glr0n3.ws-eu107.gitpod.io','localhost','focus-nest-api-a8aee1208ee3.herokuapp.com','... .herokuapp.com']
 
 
 # Application definition
