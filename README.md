@@ -162,6 +162,32 @@ Results:
 
 ### Manual Test
 
+The manual testing of the API of the project were made to assure the correctly working backend for the whole project.
+Here are the results: 
+
+| Test Case                               | Expected                                           | Testing                                      | Result                                              |
+| --------------------------------------- | -------------------------------------------------- | -------------------------------------------- | --------------------------------------------------- |
+| \*\*Profiles\*\*                        |                                                    |                                              |                                                     |
+| Create a new user profile               | User profile is created successfully               | Created a new user profile                   | User profile created as expected                    |
+| Update profile information              | Profile information is updated successfully        | Updated name, image, and current goals       | Profile information updated as expected             |
+| Test profile ordering                   | Profiles are ordered based on creation time        | Created multiple profiles at different times | Profiles ordered correctly                          |
+|                                         |                                                    |                                              |                                                     |
+| \*\*Tasks\*\*                           |                                                    |                                              |                                                     |
+| Create a new task                       | Task is created successfully                       | Created a new task                           | Task created as expected                            |
+| Update an existing task                 | Task is updated successfully                       | Modified task name, priority, and due date   | Task updated as expected                            |
+| Mark a task as done                     | Task status is updated to done                     | Marked a task as done                        | Task status updated as expected                     |
+| Delete a task                           | Task is deleted, and counts are updated            | Deleted a task                               | Task deleted, counts updated as expected            |
+|                                         |                                                    |                                              |                                                     |
+| \*\*Task Collections\*\*                |                                                    |                                              |                                                     |
+| Create a new task collection            | Task collection is created successfully            | Created a new task collection                | Task collection created as expected                 |
+| Update an existing task collection      | Task collection is updated successfully            | Modified title, due date, and description    | Task collection updated as expected                 |
+| Delete a task collection                | Task collection is deleted, and counts are updated | Deleted a task collection                    | Task collection deleted, counts updated as expected |
+|                                         |                                                    |                                              |                                                     |
+| \*\*Contact Form\*\*                    |                                                    |                                              |                                                     |
+| Test Case                               | Expected                                           | Testing                                      | Result                                              |
+| Submit a contact form with valid data   | Form entry is saved correctly                      | Submitted contact form with valid data       | Form entry saved as expected                        |
+| Submit a contact form with invalid data | Form shows appropriate error handling              | Submitted contact form with missing email    | Error displayed                                     |
+
 ## Deployment
 
 ### 1. Get the Code
