@@ -11,7 +11,10 @@ class Profile(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=255, blank=True)
-    image = models.ImageField(upload_to="images/", default="../default_profile_d7stiw")
+    image = models.ImageField(
+        upload_to="images/",
+        default="../default_profile_d7stiw"
+    )
     total_tasks = models.PositiveIntegerField(default=0)
     total_collections = models.PositiveIntegerField(default=0)
     finished_tasks = models.PositiveIntegerField(default=0)

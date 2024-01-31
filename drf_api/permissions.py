@@ -9,7 +9,8 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
     def has_object_permission(self, request, view, obj):
         """
-        Check if the requesting user has permission to perform the requested action on the object.
+        Check if the requesting user has permission to perform
+        the requested action on the object.
         """
         # Allow read-only access for safe methods (GET, HEAD, OPTIONS)
         if request.method in permissions.SAFE_METHODS:

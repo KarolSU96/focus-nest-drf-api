@@ -12,7 +12,8 @@ from .settings import (
 def root_route(request):
     return Response(
         {
-            "message": "One Ring to rule them all, One ring to find them; One ring to bring them all and in the darkness bind them."
+            "message": "One Ring to rule them all, One ring to find them;"
+            "One ring to bring them all and in the darkness bind them."
         }
     )
 

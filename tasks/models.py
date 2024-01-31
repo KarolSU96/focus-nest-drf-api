@@ -7,7 +7,12 @@ class Task(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     task_name = models.CharField(max_length=255)
     priority = models.CharField(
-        max_length=10, choices=[("high", "High"), ("medium", "Medium"), ("low", "Low")]
+        max_length=10,
+        choices=[
+            ("high", "High"),
+            ("medium", "Medium"),
+            ("low", "Low")
+        ]
     )
     is_done = models.BooleanField(default=False)
     created_at = models.DateField(auto_now_add=True)

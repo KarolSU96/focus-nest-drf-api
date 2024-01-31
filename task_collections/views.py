@@ -8,23 +8,20 @@ from django.db.models import Count
 
 
 class TaskCollectionList(generics.ListCreateAPIView):
-    queryset = TaskCollection.objects.annotate(num_tasks=Count('tasks'))
+    queryset = TaskCollection.objects.annotate(num_tasks=Count("tasks"))
     serializer_class = TaskCollectionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
-    ]  
-
-    search_fields = [
-        'title',
-        'description'
     ]
 
+    search_fields = ["title", "description"]
+
     ordering_fields = [
-        'due_date',
-        'num_tasks',
+        "due_date",
+        "num_tasks",
     ]
 
 

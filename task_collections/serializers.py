@@ -8,8 +8,10 @@ class TaskCollectionSerializer(serializers.ModelSerializer):
     Serializer for the TaskCollection model.
 
     - owner: The owner of the task collection (read-only).
-    - is_owner: Indicates if the current user is the owner of the task collection.
-    - tasks: Primary key related field representing the tasks associated with the task collection.
+    - is_owner: Indicates if the current user is the owner
+    of the task collection.
+    - tasks: Primary key related field representing
+    the tasks associated with the task collection.
     """
 
     owner = serializers.ReadOnlyField(source="owner.username")
@@ -20,7 +22,8 @@ class TaskCollectionSerializer(serializers.ModelSerializer):
 
     def get_is_owner(self, obj):
         """
-        Method to check if the current user is the owner of the task collection.
+        Method to check if the current user is the owner
+        of the task collection.
 
         Args:
         - obj: The TaskCollection instance.
