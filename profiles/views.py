@@ -12,10 +12,11 @@ class ProfileList(APIView):
     List all profiles
     No Create view (post method), as profile creation handled by django signals
     """
+
     def get(self, request):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(
-            profiles, many=True, context={'request': request}
+            profiles, many=True, context={"request": request}
         )
         return Response(serializer.data)
 
@@ -27,6 +28,7 @@ class ProfileDetail(APIView):
     - GET: Retrieves details of a specific profile.
     - PUT: Updates the details of a specific profile.
     """
+
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]
 
@@ -61,9 +63,7 @@ class ProfileDetail(APIView):
         - Response containing the serialized profile data.
         """
         profile = self.get_object(pk)
-        serializer = ProfileSerializer(
-            profile, context={'request': request}
-        )
+        serializer = ProfileSerializer(profile, context={"request": request})
         return Response(serializer.data)
 
     def put(self, request, pk):
@@ -79,7 +79,7 @@ class ProfileDetail(APIView):
         """
         profile = self.get_object(pk)
         serializer = ProfileSerializer(
-            profile, data=request.data, context={'request': request}
+            profile, data=request.data, context={"request": request}
         )
         if serializer.is_valid():
             serializer.save()
