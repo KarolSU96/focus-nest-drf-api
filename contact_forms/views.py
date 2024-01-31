@@ -4,6 +4,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .models import ContactForm
 from .serializers import ContactFormSerializer
 
+
 class ContactFormListView(generics.ListCreateAPIView):
     # Set the queryset to include all ContactForm instances
     queryset = ContactForm.objects.all()
@@ -15,9 +16,8 @@ class ContactFormListView(generics.ListCreateAPIView):
     permission_classes = [IsAdminUser]
 
     def perforn_create(self, serializer):
-
         serializer.save(user=self.request.user)
 
-class ContactFormCreateView(generics.CreateAPIView):
 
+class ContactFormCreateView(generics.CreateAPIView):
     serializer_class = ContactFormSerializer
