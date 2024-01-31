@@ -10,7 +10,7 @@ The users are able to create their profiles. There is full crud functionality as
 ## Models
 // Here will the data diagram go. Filter the apps and command the grav to make only my models, not whole data model that comes by default with django.
 
-### Contact Form Model
+### ContactForm Model
 
 -   **Fields:**
     
@@ -22,7 +22,8 @@ The users are able to create their profiles. There is full crud functionality as
     -   `total_collections`: The total number of task collections associated with the user.
     -   `finished_tasks`: The number of tasks marked as finished by the user.
     -   `current_goals`: A field for the user to specify their current goals.
--   **Description:** The Profile model represents user profiles within the system. It is linked to the standard User model, capturing information such as name, image, task statistics, and current goals. Signals are utilized to keep track of task and task collection counts associated with the user.
+-   **Description:**
+The Profile model represents user profiles within the system. It is linked to the standard User model, capturing information such as name, image, task statistics, and current goals. Signals are utilized to keep track of task and task collection counts associated with the user.
     
 
 ### TaskCollection Model
@@ -34,7 +35,8 @@ The users are able to create their profiles. There is full crud functionality as
     -   `due_date`: The due date for the entire task collection.
     -   `created_at`: The timestamp indicating when the task collection was created.
     -   `description`: A brief description of the task collection.
--   **Description:** The TaskCollection model represents collections or groups of tasks. It includes fields for the title, owner (user associated with the collection), due date, creation timestamp, and a brief description.
+-   **Description:** 
+The TaskCollection model represents collections or groups of tasks. It includes fields for the title, owner (user associated with the collection), due date, creation timestamp, and a brief description.
     
 
 ### Task Model
@@ -48,9 +50,23 @@ The users are able to create their profiles. There is full crud functionality as
     -   `created_at`: The timestamp indicating when the task was created.
     -   `due_date`: The due date for the task.
     -   `notes`: Additional notes or details about the task.
--   **Description:** The Task model represents individual tasks in the system. It includes fields for the task name, priority, completion status, creation timestamp, due date, and notes. Signals are employed to update user profiles when tasks or task collections are created, modified, or deleted.
+-   **Description:**
+The Task model represents individual tasks in the system. It includes fields for the task name, priority, completion status, creation timestamp, due date, and notes. The model supports organization by allowing tasks to be associated with specific collections. 
 
+### Profile Model
 
+-   **Fields:**
+
+    - `owner`: A one-to-one relationship with the built-in User model.
+    - `created_at`: The timestamp indicating when the profile was created.
+    - `name`: The name associated with the user's profile.
+    - `image`: An image associated with the user's profile.
+    - `total_tasks`: The total number of tasks associated with the user.
+    - `total_collections`: The total number of task collections associated with the user.
+    - `finished_tasks`: The number of tasks marked as finished by the user.
+    - `current_goals`: A field for the user to specify their current goals.
+- **Description:**
+The Profile model represents the user profiles within the system. It is linked to the standard User model, capturing information such as name, image, task statistics, and current goals. Signals are used 
 
 
 
