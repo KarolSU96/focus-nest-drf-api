@@ -4,6 +4,7 @@ from .models import Task
 from .serializers import TaskSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
 
+
 class TaskList(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
@@ -17,14 +18,15 @@ class TaskList(generics.ListCreateAPIView):
         filters.SearchFilter,
     ]
     search_fields = [
-        'task_name',
-        'notes',
+        "task_name",
+        "notes",
     ]
     ordering_fields = [
-        'priority',
-        'due_date',
-        'is_done',
+        "priority",
+        "due_date",
+        "is_done",
     ]
+
 
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
