@@ -236,5 +236,10 @@ Here are the results:
 
 ## Acknowledgements
 
--Code Institute DRF Toutorial which this project was inspired by. Sniplets for dj-rest-auth bugfix, aswell as the code that handles the changing URL for Gitpod Workspaces. I also borrowed the basic profile image from CI.
+- Code Institute DRF Toutorial which this project was inspired by. Sniplets for dj-rest-auth bugfix, aswell as the code that handles the changing URL for Gitpod Workspaces. I also borrowed the basic profile image from CI.
+- Django/ Rest API Documentation
+- Django Extensions for generating the Data Model
+- [This Stack Overflow article](https://stackoverflow.com/questions/70508568/django-csrf-trusted-origins-not-working-as-expected) which helped me fix the issue with CSRF error. 
+
+
 
