@@ -236,4 +236,5 @@ Here are the results:
 
 ## Acknowledgements
 
--Code Institute DRF Toutorial which this project was inspired by. Sniplets for dj-rest-auth bugfix, aswell as the code that handles the changing URL for Gitpod Workspaces.
+-Code Institute DRF Toutorial which this project was inspired by. Sniplets for dj-rest-auth bugfix, aswell as the code that handles the changing URL for Gitpod Workspaces. I also borrowed the basic profile image from CI.
+
