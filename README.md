@@ -8,7 +8,9 @@ Focus Nest API is a back-end side of my full stack portfolio project of the Code
 The users are able to create their profiles. There is full crud functionality assured for tasks and collections. The users can filter the tasks aswell as the collectinons.  
 
 ## Models
-// Here will the data diagram go. Filter the apps and command the grav to make only my models, not whole data model that comes by default with django.
+
+### Data Model Diagram
+![Data Model Diagram](./doc_images/data_model_diagram.png)
 
 ### ContactForm Model
 
