@@ -147,6 +147,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'drf_api.wsgi.application'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
