@@ -68,6 +68,7 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'),
 '8000-karolsu96-focusnestdrfa-pffz5glr0n3.ws-eu107.gitpod.io',
 'localhost',
+'8000-karolsu96-focusnestdrfa-pffz5glr0n3.ws-eu108.gitpod.io'
 ]
 
 
