@@ -6,6 +6,7 @@ from drf_api.permissions import IsOwnerOrReadOnly
 
 
 class TaskList(generics.ListCreateAPIView):
+
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -16,7 +17,13 @@ class TaskList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
+        DjangoFilterBackend,
     ]
+
+    filterset_fields = {
+        "is_done"
+    }
+    
     search_fields = [
         "task_name",
         "notes",

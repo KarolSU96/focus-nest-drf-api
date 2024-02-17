@@ -93,6 +93,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth.registration',
     'django_extensions',
+    'django_filters',
 
     'tasks',
     'profiles',
