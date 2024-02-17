@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from .models import Task
 from .serializers import TaskSerializer
 from drf_api.permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class TaskList(generics.ListCreateAPIView):
@@ -23,7 +24,7 @@ class TaskList(generics.ListCreateAPIView):
     filterset_fields = {
         "is_done"
     }
-    
+
     search_fields = [
         "task_name",
         "notes",
