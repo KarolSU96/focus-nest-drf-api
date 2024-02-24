@@ -12,6 +12,9 @@ class TaskCollectionList(generics.ListCreateAPIView):
     serializer_class = TaskCollectionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
