@@ -18,6 +18,13 @@ class ContactFormListView(generics.ListCreateAPIView):
     def perforn_create(self, serializer):
         serializer.save(user=self.request.user)
 
+    def get_permissions(self):
+        # Allow anyone (including logged-out users) to create contact forms
+        if self.request.method == 'POST':
+            return [permissions.AllowAny()]
+        # Restrict view access to admin users
+        return super().get_permissions()
+
 
 class ContactFormCreateView(generics.CreateAPIView):
     serializer_class = ContactFormSerializer
