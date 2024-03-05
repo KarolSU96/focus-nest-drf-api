@@ -1,6 +1,6 @@
 from rest_framework import generics
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from .models import ContactForm
 from .serializers import ContactFormSerializer
 
@@ -13,7 +13,7 @@ class ContactFormListView(generics.ListCreateAPIView):
     serializer_class = ContactFormSerializer
 
     # Set the permission classes to only allow admin users to view the list
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsAdminUser]
 
     def perforn_create(self, serializer):
         serializer.save(user=self.request.user)
@@ -21,7 +21,7 @@ class ContactFormListView(generics.ListCreateAPIView):
     def get_permissions(self):
         # Allow anyone (including logged-out users) to create contact forms
         if self.request.method == 'POST':
-            return [permissions.AllowAny()]
+            return [AllowAny()]
         # Restrict view access to admin users
         return super().get_permissions()
 
