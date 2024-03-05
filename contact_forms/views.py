@@ -13,7 +13,7 @@ class ContactFormListView(generics.ListCreateAPIView):
     serializer_class = ContactFormSerializer
 
     # Set the permission classes to only allow admin users to view the list
-    permission_classes = [IsAdminUser]
+    permission_classes = [permissions.IsAdminUser]
 
     def perforn_create(self, serializer):
         serializer.save(user=self.request.user)
