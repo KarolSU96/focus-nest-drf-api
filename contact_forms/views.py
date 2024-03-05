@@ -16,7 +16,7 @@ class ContactFormListView(generics.ListCreateAPIView):
     permission_classes = [IsAdminUser]
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        serializer.save()
 
     def get_permissions(self):
         # Allow anyone (including logged-out users) to create contact forms
