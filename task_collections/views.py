@@ -10,7 +10,7 @@ from django.db.models import Count
 class TaskCollectionList(generics.ListCreateAPIView):
     queryset = TaskCollection.objects.annotate(num_tasks=Count("tasks"))
     serializer_class = TaskCollectionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsOwnerOrReadOnly]
 
     def get_queryset(self):
         # Filter collections based on the authenticated user
