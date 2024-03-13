@@ -8,9 +8,9 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 class TaskList(generics.ListCreateAPIView):
 
-    queryset = Task.objects.all()
+    queryset = Task.objects.filter(owner=self.request.user)
     serializer_class = TaskSerializer
-    permission_classes = [permissions.IsAuthenticated, IsOwner]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
