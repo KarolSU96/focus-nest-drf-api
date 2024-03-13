@@ -2,6 +2,7 @@ from rest_framework import generics, permissions, filters
 from rest_framework.response import Response
 from .models import Task
 from .serializers import TaskSerializer
+from drf_api.permissions import IsOwnerOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 
 
@@ -42,4 +43,4 @@ class TaskList(generics.ListCreateAPIView):
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsOwnerOrReadOnly]
