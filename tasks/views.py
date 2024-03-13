@@ -8,7 +8,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 class TaskList(generics.ListCreateAPIView):
 
-    queryset = Task.objects.filter(owner=self.request.user)
+    queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
