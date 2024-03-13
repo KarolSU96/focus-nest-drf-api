@@ -3,14 +3,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import TaskCollection
 from .serializers import TaskCollectionSerializer
-from drf_api.permissions import IsOwnerOrReadOnly
+from drf_api.permissions import IsAuthenticatedOrReadOnly
 from django.db.models import Count
 
 
 class TaskCollectionList(generics.ListCreateAPIView):
     queryset = TaskCollection.objects.annotate(num_tasks=Count("tasks"))
     serializer_class = TaskCollectionSerializer
-    permission_classes = [permissions.IsOwnerOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
         # Filter collections based on the authenticated user
