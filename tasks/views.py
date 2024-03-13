@@ -2,7 +2,6 @@ from rest_framework import generics, permissions, filters
 from rest_framework.response import Response
 from .models import Task
 from .serializers import TaskSerializer
-from drf_api.permissions import IsAuthenticatedOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 
 

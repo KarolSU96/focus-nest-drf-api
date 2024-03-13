@@ -3,7 +3,6 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import TaskCollection
 from .serializers import TaskCollectionSerializer
-from drf_api.permissions import IsAuthenticatedOrReadOnly
 from django.db.models import Count
 
 
