@@ -36,3 +36,7 @@ class TaskCollectionDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = TaskCollection.objects.all()
     serializer_class = TaskCollectionSerializer
     permission_classes = [IsOwnerOrReadOnly]
+
+    def get_queryset(self):
+        # Filter collections based on the authenticated user
+        return TaskCollection.objects.filter(owner=self.request.user)

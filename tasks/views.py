@@ -44,3 +44,7 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [IsOwnerOrReadOnly]
+
+    def get_queryset(self):
+        # Filter tasks based on the authenticated user
+        return Task.objects.filter(owner=self.request.user)
