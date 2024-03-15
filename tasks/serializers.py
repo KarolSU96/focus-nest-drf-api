@@ -30,4 +30,5 @@ class TaskSerializer(serializers.ModelSerializer):
             "due_date",
             "notes",
             "is_owner",
+            "task_collection",
         ]
