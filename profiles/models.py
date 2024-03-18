@@ -27,7 +27,7 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.owner.username}'s profile"
 
-
+# Receivers used to sum up the tasks for the admin view.
 @receiver(post_save, sender=Task)
 def update_profile_total_tasks(sender, instance, created, **kwargs):
     if created:
