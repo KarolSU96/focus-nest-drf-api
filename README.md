@@ -238,11 +238,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DATABASES = {
   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
   }
-- Save and perform migrations: with command python manage.py migrate.
+- Save and perform migrations: with command `python manage.py migrate`.
 - Commit and push.
 
 ### 8. Install Requirements
-- User command: `pip install -r requirements.txt` to install the requirements for the project.
+- Use command: `pip install -r requirements.txt` to install the requirements for the project.
 
 ### 9. Configure Heroku APP
 - Go back to Heroku dashboard. 
