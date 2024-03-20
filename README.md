@@ -137,6 +137,7 @@ The Profile model represents the user profiles within the system. It is linked t
     
 -   **SQLparse:** Assists in processing and manipulating SQL queries for effective database operations.
 
+- **Django Filters:** Simplifies queryset filtering in Django apps for efficient data retrieval based on specific parameters, enhancing flexibility in web development.
 
 ## Testing
 
@@ -220,7 +221,30 @@ Here are the results:
 - Click 'Review'
 - Copy the ElephantSQL databse URL (starts with 'postgres://')
 
-### 6. Configure Heroku APP
+### 6. Env.py
+- Find / create env.py inside the main backend repository.
+- Add 3 enviroment variables and import os:
+
+import os
+
+os.environ['CLOUDINARY_URL']= Your cloudinary url goes here
+os.environ["DATABASE_URL"]= Your ElephantSQL goes here
+os.environ["SECRET_KEY"]= Your secret key/ passwort- write it down and don't share.
+
+### 7. Settings.py
+- Replace SECRET_KEY variable with: 
+SECRET_KEY = os.environ.get('SECRET_KEY')
+- Replace DATABASES variable with: 
+DATABASES = {
+  'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+  }
+- Save and perform migrations: with command python manage.py migrate.
+- Commit and push.
+
+### 8. Install Requirements
+- User command: `pip install -r requirements.txt` to install the requirements for the project.
+
+### 9. Configure Heroku APP
 - Go back to Heroku dashboard. 
 - Click on 'Settings'.
 - Find and click 'reveral config vars'
@@ -230,21 +254,22 @@ Here are the results:
     -   `SECRET_KEY`: Your secret key.
     -   `ALLOWED_HOST`: Your Heroku app's URL.
 
-### 7. Deploy to Heroku
+### 10. Deploy to Heroku
 - Click the 'Deploy' tab.
 - Under 'Deployment Method' select 'GitHub' and connect to your repo.
 - In the 'Manual Deploy' section choose 'main' as the branch and click 'Deploy Branch'
 
-### 8. Open the deployed site
+### 11. Open the deployed site
 
 - Your APi will be deployed shortly. Once complete, you'll get link to the deployed site. 
 
 ## Acknowledgements
 
-- Code Institute DRF Toutorial which this project was inspired by. Sniplets for dj-rest-auth bugfix, aswell as the code that handles the changing URL for Gitpod Workspaces. I also borrowed the basic profile image from CI.
+- Code Institute DRF Toutorial which this project was inspired by. Sniplets for dj-rest-auth bugfix( logout view), aswell as the code that handles the changing URL for Gitpod Workspaces. I also borrowed the basic profile image from CI.
 - Django/ Rest API Documentation
 - Django Extensions for generating the Data Model
 - [This Stack Overflow article](https://stackoverflow.com/questions/70508568/django-csrf-trusted-origins-not-working-as-expected) which helped me fix the issue with CSRF error. 
+- This Stack article which ended my 2 day batttle with a bug https://stackoverflow.com/questions/57853288/react-warning-maximum-update-depth-exceeded
 
 
 
